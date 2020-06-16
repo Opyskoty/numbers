@@ -25,10 +25,17 @@ async function drawCard() {
   
 };
 
-function appendDOM(msg) {
-  console.log("append DOM");
-  $("body").append(`<img src='${msg}'></img>`);
+function appendDOM(img) {
+  // console.log("append DOM");
+  let angle = Math.random() * 90-45;
+  let x = Math.random() * 50;
+  let y = Math.random() * 20;
+  // $("#cards-container").append(`<img src='${msg}' style="position:absolute;"></img>`).css('transform', `rotate(${angle}deg)`);
 
+  // $("#cards-container").append($("<img>", { src: img, css: {transform: translate(`${x} ${y} ${angle}`)}})
+  $("#cards-container").append(
+    $("<img>", { src: img, css: {transform: `translate(${x}px, ${y}px) rotate(${angle}deg)`, position : 'absolute'}})
+    );
 }
 
 $(function () {
